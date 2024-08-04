@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AngleSharp" Version="1.1.2" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Scripting" Version="4.10.0" />
+    <PackageReference Include="System.ServiceModel.Syndication" Version="8.0.0" />
+
+    <Compile Remove="Needles/**/*.cs" />
+    <!-- <None Include="Needles/**" CopyToOutputDirectory="PreserveNewest" /> -->
+  </ItemGroup>
+
+</Project>
