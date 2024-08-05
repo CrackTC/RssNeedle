@@ -25,6 +25,7 @@ internal static class RequestHandler
             "System.Text.RegularExpressions",
             "System.Threading",
             "System.Threading.Tasks",
+            "System.ServiceModel.Syndication",
         ])
         .WithOptimizationLevel(OptimizationLevel.Release);
 

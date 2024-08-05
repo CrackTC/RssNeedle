@@ -15,6 +15,7 @@ foreach (var link in links)
     {
         Info($"Replace with {link}");
         Item.Links[0].Uri = new(link);
+        Item.Summary = new(Item.Summary.Text, TextSyndicationContentKind.Html);
         return Item;
     }
 }
