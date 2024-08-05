@@ -86,8 +86,17 @@ internal static class RequestHandler
         }));
 
         response.ContentType = "application/rss+xml";
-        using var writer = XmlWriter.Create(response.OutputStream);
-        feed.SaveAsAtom10(writer);
+
+        try
+        {
+            using var writer = XmlWriter.Create(response.OutputStream);
+            feed.SaveAsAtom10(writer);
+        }
+        catch (HttpListenerException e)
+        {
+            NeedleGlobals.Error(e);
+            return;
+        }
 
         Console.WriteLine("[info] -> " + response.StatusCode);
     }
