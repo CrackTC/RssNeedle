@@ -31,7 +31,8 @@ internal static class RequestHandler
     private static readonly IEnumerable<ScriptRunner<SyndicationItem>> _needles = Directory
         .GetFiles("Needles", "*.cs")
         .Select(File.ReadAllText)
-        .Select(code => CSharpScript.Create<SyndicationItem>(code, options: _scriptOptions, globalsType: typeof(NeedleGlobals)).CreateDelegate());
+        .Select(code => CSharpScript.Create<SyndicationItem>(code, options: _scriptOptions, globalsType: typeof(NeedleGlobals)).CreateDelegate())
+        .ToList();
 
     public static async void HandleRequest(HttpListenerContext context)
     {
