@@ -5,6 +5,7 @@ Info("MoeIsland.cs");
 string[] patterns = [
     @"^https://(?:x|twitter)\.com/[^/]+/status/",
     @"^https://www\.pixiv\.net/artworks/",
+    @"^https://t\.bilibili\.com/",
 ];
 
 var links = QueryAll("a").Select(x => x.GetAttribute("href"));
