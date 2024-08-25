@@ -6,6 +6,7 @@ string[] patterns = [
     @"^https://(?:x|twitter)\.com/[^/]+/status/",
     @"^https://www\.pixiv\.net/artworks/",
     @"^https://t\.bilibili\.com/",
+    @"^https://skeb\.jp/",
 ];
 
 var links = QueryAll("a").Select(x => x.GetAttribute("href"));
