@@ -13,7 +13,7 @@
     <PackageReference Include="System.ServiceModel.Syndication" Version="8.0.0" />
 
     <Compile Remove="Needles/**/*.cs" />
-    <!-- <None Include="Needles/**" CopyToOutputDirectory="PreserveNewest" /> -->
+    <None Include="Needles/**" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 
 </Project>
