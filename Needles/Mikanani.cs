@@ -1,3 +1,5 @@
+using System.Xml.Linq;
+
 if (!GetUrl().StartsWith("http://mikanani.me/RSS/")) return Item;
 
 Info("Mikanani.cs");
@@ -16,5 +18,13 @@ Info($"Replace with {magnet}");
 link.Uri = new(magnet);
 link.MediaType = null;
 link.Length = 0;
+
+var torrent = Item.ElementExtensions
+    .FirstOrDefault(e => e.OuterName is "torrent")
+    .GetObject<XElement>();
+
+var pubDate = (DateTime)torrent.Element(XName.Get("pubDate", torrent.GetDefaultNamespace().NamespaceName));
+Item.PublishDate = pubDate;
+Item.LastUpdatedTime = pubDate;
 
 return Item;
